@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeroModel } from './models/hero-model';
 
 @Component({
   selector: 'gang-root',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'gang';
 }

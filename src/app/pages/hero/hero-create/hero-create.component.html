@@ -1,0 +1,28 @@
+
+
+<form [formGroup]="heroForm">
+    <div class="form-group">
+      <label class="center-block">Id:
+        <input class="form-control" formControlName="id"  type="number">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Name:
+        <input class="form-control" formControlName="name">
+      </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">email:
+          <input class="form-control" formControlName="email">
+        </label>
+        <div *ngIf="heroForm.get('email').invalid && (heroForm.get('email').dirty || !heroForm.get('email').untouched)" class="alert alert-danger" role="alert">
+            <div *ngIf="heroForm.get('email').errors.required">
+                Email is required.
+            </div>
+            <div *ngIf="heroForm.get('email').errors.email">
+                Email format is bad
+            </div>
+        </div>
+      </div>
+  </form>
+  <button (click)="submit()">Submit</button>

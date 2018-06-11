@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<button routerLink="/heros/create">Create</button>
+
+<div *ngFor="let item of heros">
+  id: {{item.id}}<br>
+  name: {{item.name}}<br>
+  email: {{item.email}}<br>
+  <button routerLink="/hero/{{item.id}}">Edit</button>
+  <button (click)="deleteBt(item.id)">Delete</button>
+</div>
