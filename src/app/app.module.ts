@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HeroModule } from './pages/hero/hero.module';
+import { HeroSettingModule } from './pages/hero-setting/hero-setting.module';
 
 
 @NgModule({
@@ -14,7 +15,6 @@ import { HeroModule } from './pages/hero/hero.module';
   imports: [
     BrowserModule,
     FormsModule,
-    HeroModule,
     AppRoutingModule
   ],
   providers: [],

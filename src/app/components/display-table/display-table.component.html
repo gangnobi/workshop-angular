@@ -1,0 +1,57 @@
+<div *ngIf="displayType === 'hero';then hero else other;"></div>
+
+<ng-template #hero>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>
+          <button (click)="onEditClick(item.id)">Edit</button>
+          <button (click)="onDeleteClick(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #other>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center">
+        <th scope="col">No.</th>
+        <th scope="col">Hero ID</th>
+        <th scope="col">ID</th>
+        <th scope="col">Can Fly</th>
+        <th scope="col">Can Run</th>
+        <th scope="col">Can Swim</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.heroId}}</td>
+        <td>{{item.fly ? 'can fly' : 'can\'t fly'}}</td>
+        <td>{{item.run ? 'can run' : 'can\'t run'}}</td>
+        <td>{{item.swim ? 'can swim' : 'can\'t swim'}}</td>
+        <td>
+          <button (click)="onEditClick(item.id)">Edit</button>
+          <button (click)="onDeleteClick(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

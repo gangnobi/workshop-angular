@@ -3,10 +3,13 @@
 
 <button routerLink="/heros/create">Create</button>
 
-<div *ngFor="let item of heros">
-  id: {{item.id}}<br>
-  name: {{item.name}}<br>
-  email: {{item.email}}<br>
+<!-- <div *ngFor="let item of heros">
+  id: {{item.id}}
+  <br> name: {{item.name}}
+  <br> email: {{item.email}}
+  <br>
   <button routerLink="/hero/{{item.id}}">Edit</button>
   <button (click)="deleteBt(item.id)">Delete</button>
-</div>
+</div> -->
+
+<gang-display-table [displayType]="'hero'" [data]="heros" (editEvent)="editBt($event)" (deleteEvent)="deleteBt($event)"></gang-display-table>

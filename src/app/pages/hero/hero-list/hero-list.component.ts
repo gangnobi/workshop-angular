@@ -18,11 +18,16 @@ export class HeroListComponent implements OnInit {
 
   ngOnInit() {
     this.heroService.get().subscribe(res => {
-      this.heros = res;
+      this.heros = res.json().data;
     });
   }
 
+  editBt(id: Number) {
+    this.router.navigate(['/hero/' + id]);
+  }
+
   deleteBt(id: Number) {
+    console.log(id);
     this.heroService.delete(id).subscribe(res => console.log(res));
   }
 

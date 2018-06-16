@@ -22,20 +22,19 @@ export class HeroEditComponent implements OnInit {
       name: [''],
       email: ['', [Validators.email, Validators.required]]
     });
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.heroService.getById(params['id']).subscribe(res => {
-        if (res) {
-          this.heroForm.setValue({
-            id: res.id,
-            name: res.name,
-            email: res.email
-          });
-        } else {
-          this.router.navigate(['/heros']);
-        }
-      });
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.heroService.getById(this.id).subscribe(res => {
+      if (res) {
+        this.heroForm.setValue({
+          id: res.id,
+          name: res.name,
+          email: res.email
+        });
+      } else {
+        this.router.navigate(['/heros']);
+      }
     });
+
   }
 
   submitEdit() {

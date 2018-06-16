@@ -7,7 +7,7 @@ import { HeroEditComponent } from './hero-edit/hero-edit.component';
 
 const routes: Routes = [
     {
-        path: 'heros',
+        path: '',
         component: HeroLayoutComponent,
         children: [
             {
